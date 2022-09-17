@@ -17,5 +17,5 @@ function solution(s) {
         s = s.replaceAll(word, i)
     })
     
-    return parseInt(s);
+    return Number(s);
 }
