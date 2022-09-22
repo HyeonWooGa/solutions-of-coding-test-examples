@@ -1,25 +1,26 @@
 function solution(n, lost, reserve) {
-  let answer = 0;
-  let studentClothes = new Array(n + 2).fill(1);
-  for (const student of reserve) studentClothes[student] += 1;
-  for (const student of lost) studentClothes[student] -= 1;
-  for (let i = 1; i < n + 1; i++) {
-    if (studentClothes[i] === 0) {
-      if (studentClothes[i - 1] === 2 || studentClothes[i + 1] === 2) {
-        if (studentClothes[i - 1] === 2) {
-          studentClothes[i - 1] -= 1;
-          studentClothes[i] += 1;
-        } else {
-          studentClothes[i + 1] -= 1;
-          studentClothes[i] += 1;
-        }
-      }
+    const students = {};
+    let answer = 0;
+    for(let i = 1; i <= n; i++){
+        students[i] = 1;
     }
-  }
-  for (const student of studentClothes) {
-    answer += student > 0 ? 1 : 0;
-  }
-  answer -= 2;
-  return answer;
+    lost.forEach(number => students[number] -= 1);
+    reserve.forEach(number => students[number] += 1);
+
+    for(let i = 1; i <= n; i++){
+        if(students[i] === 2 && students[i-1] === 0){
+                students[i-1]++;
+                students[i]--;
+        } else if(students[i] === 2 && students[i+1] === 0){
+                students[i+1]++;
+                students[i]--;
+        }
+    }
+    for(let key in students){
+        if(students[key] >= 1){
+            answer++;
+        }
+    }
+    return answer;
 }
 
