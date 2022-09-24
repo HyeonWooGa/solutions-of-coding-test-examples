@@ -1,15 +1,8 @@
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim();
 
-const wordArr = input.split('');
+const word = fs.readFileSync('/dev/stdin').toString().trim().split('');
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-const result = alphabet.map(el => wordArr.indexOf(el));
+const result = alphabet.map((char) => word.indexOf(char)).join(' ');
 
-let string = '';
-
-result.forEach((el) => {
-  string = string + `${el} `
-})
-
-console.log(string);
+console.log(result);
