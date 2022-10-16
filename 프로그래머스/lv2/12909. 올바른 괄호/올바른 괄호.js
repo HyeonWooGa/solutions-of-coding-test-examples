@@ -1,11 +1,9 @@
 function solution(s){
     let stack = 0;
     
-    if (s[0] === ")") return false;
-    
     s.split("").forEach((char) => {
         if(char === ")") {
-            if (stack === 0) return false;
+            if (stack === 0) stack = 100001;
             else stack -= 1;
         } else {
             stack += 1;
