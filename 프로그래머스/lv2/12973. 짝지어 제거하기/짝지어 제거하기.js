@@ -2,7 +2,7 @@ function solution(s)
 {
     let index = 0;
     let slicedStr = s.split('');
-    let result = [];
+    const result = [];
     
     while(index < slicedStr.length) {
         if (slicedStr[index] === slicedStr[index+1] && slicedStr.length !== 0) {
