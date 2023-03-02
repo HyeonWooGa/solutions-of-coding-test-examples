@@ -1,2 +1,1 @@
-# solutions-of-coding-test-examples
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+## 직접 풀이한 코딩테스트 예제 모음
